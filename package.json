@@ -1,0 +1,20 @@
+{
+  "name": "heimdall-worker",
+  "version": "1.0.0",
+  "description": "Proyecto para ejecución de trabajos de Heimdall",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "heimdall"
+  ],
+  "author": "thorin",
+  "license": "ISC",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "minimist": "^1.2.5",
+    "socket.io-client": "^2.3.0"
+  }
+}
