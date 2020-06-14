@@ -1,5 +1,5 @@
 {
-  "name": "heimdall-worker",
+  "name": "gjallarhorn",
   "version": "1.0.0",
   "description": "Proyecto para ejecución de trabajos de Heimdall",
   "main": "index.js",
@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "heimdall"
+    "heimdall",
+    "gjallarhorn"
   ],
   "author": "thorin",
   "license": "Apache 2.0",

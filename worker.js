@@ -1,6 +1,7 @@
 import io from 'socket.io-client';
 import querystring from 'querystring';
 
+import JobRunner from './job_runner';
 
 module.exports = (args) => {
 
@@ -15,6 +16,9 @@ module.exports = (args) => {
         console.log('Message:', data);
     });
 
+    socket.on('run_job', (data) => {
+        JobRunner(data);
+    })
     //TODO decidir si esto es util. Se podría usar pm2 para forar el reinicio despues del disconnect.
     //Quizas el propio socket reconecta mejor solo que reiniciando.
     socket.on('disconnect', () => {
