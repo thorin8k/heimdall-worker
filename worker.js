@@ -17,12 +17,29 @@ module.exports = (args) => {
     });
 
     socket.on('run_job', (data) => {
-        JobRunner(data);
+        try {
+            JobRunner(data, socket);
+        } catch (e) {
+            socket.emit('job_' + data.id, {
+                type: 'error',
+                message: e
+            });
+        }
     })
     //TODO decidir si esto es util. Se podría usar pm2 para forar el reinicio despues del disconnect.
     //Quizas el propio socket reconecta mejor solo que reiniciando.
     socket.on('disconnect', () => {
         console.log('Server gone');
-        process.exit(1);
+        // console.log("Restarting");
+        // setTimeout(function () {
+        //     process.on("exit", function () {
+        //         require("child_process").spawn(process.argv.shift(), process.argv, {
+        //             cwd: process.cwd(),
+        //             detached: true,
+        //             stdio: "inherit"
+        //         });
+        //     });
+        //     process.exit();
+        // }, 5000);
     })
 }
